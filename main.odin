@@ -1,6 +1,7 @@
 package main
 
 import "core:fmt"
+import "core:mem"
 import rl "vendor:raylib"
 
 // N -> Top-Right    0
@@ -25,7 +26,8 @@ main::proc() {
 
     rl.SetTargetFPS(144)
     for !rl.WindowShouldClose() {
-        free_all(context.temp_allocator)
+        // free_all(context.temp_allocator)
+        mem.free_all(context.temp_allocator)
 
         rl.BeginDrawing(); defer rl.EndDrawing()
 
